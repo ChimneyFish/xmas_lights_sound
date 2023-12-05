@@ -43,7 +43,7 @@ void setup() {
     exit(); // Exit the sketch if there are not enough serial ports
   }
 
-  // Set pin 3 to HIGH (always on)
+  // Set pin 2 to HIGH (always on)
   arduino.pinMode(ledPinBlink, Arduino.OUTPUT);
   arduino.digitalWrite(ledPinBlink, Arduino.HIGH); // Set initially to LOW
 
@@ -157,6 +157,7 @@ void triggerPin(int pin) {
 void keyPressed() {
   if (key == 's' || key == 'S') {
     continuePlaying = false;  // Stop playing the next song
+    arduino.digitalWrite(ledPinBlink, Arduino.LOW); // Set to LOW to resume normal operation
    stop();
    exit();
   }
