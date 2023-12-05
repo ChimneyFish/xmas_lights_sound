@@ -88,21 +88,21 @@ void draw() {
   if (beat.isKick()) {
     triggerPin(ledPin);
     triggerPin(ledPin4);
-    delay(50);
+    delay(200);
     kickSize = 30;
   }
 
   if (beat.isSnare()) {
     triggerPin(ledPin2);
     triggerPin(ledPin5);
-    delay(25);
+    delay(200);
     snareSize = 35;
   }
 
   if (beat.isHat()) {
     triggerPin(ledPin6);
     triggerPin(ledPin3);
-    delay(50);
+    delay(200);
     hatSize = 40;
   }
 
@@ -110,12 +110,12 @@ void draw() {
   if (beat.isOnset(2)) {
     triggerPin(ledPin4);
     triggerPin(ledPin);
-    delay(35);
+    delay(200);
   }
 
   if (beat.isOnset(4)) {
     triggerPin(ledPin5);
-    delay(40);
+    delay(200);
   }
 
   // Blink an additional LED along with the song
