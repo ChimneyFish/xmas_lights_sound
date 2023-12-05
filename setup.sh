@@ -12,8 +12,8 @@ $INTP
 #
 read -p "Do you want to pull all mp3s from a single folder? Press 1 for yes, press any other key to exit and place MP3s manually: " N
 #
-if [ "$N" -eq 1 ]; do
-   sh "$DIR"/data/randomp3.sh
+if [ "$N" -eq 1 ]; then
+   sh "$song_move"
 else
     exit
 fi
