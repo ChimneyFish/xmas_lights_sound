@@ -10,5 +10,5 @@ base_destination_dir="$DIR"
 
 
 # List all .mp3 files in the master directory and shuffle the list
-mp3_files=(*.mp3)
-mv "$master_dir"/"$mp3_files" "$base_destinations_dir"
+
+cp "$master_dir"/*.mp3 "$base_destinations_dir"
