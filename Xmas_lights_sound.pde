@@ -37,7 +37,7 @@ void setup() {
   String[] portList = Arduino.list();
   if (portList.length >= 1) {
     // Check if there are at least 3 available ports before accessing index 2
-    arduino = new Arduino(this, Arduino.list()[2], 57600);
+    arduino = new Arduino(this, Arduino.list()[0], 57600);
   } else {
     println("Error: Not enough serial ports available.");
     exit(); // Exit the sketch if there are not enough serial ports
