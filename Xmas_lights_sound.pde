@@ -78,6 +78,7 @@ void setup() {
   arduino.pinMode(ledPin3, Arduino.OUTPUT);
   arduino.pinMode(ledPin4, Arduino.OUTPUT);
   arduino.pinMode(ledPin5, Arduino.OUTPUT);
+  arduino.digitalWrite(ledPin5, Arduino.HIGH)
   arduino.pinMode(ledPin6, Arduino.OUTPUT);
 }
 
@@ -88,21 +89,18 @@ void draw() {
   if (beat.isKick()) {
     triggerPin(ledPin);
     triggerPin(ledPin4);
-    delay(200);
     kickSize = 30;
   }
 
   if (beat.isSnare()) {
     triggerPin(ledPin2);
-    triggerPin(ledPin5);
-    delay(200);
+    pinTrigger(ledPin5);
     snareSize = 35;
   }
 
   if (beat.isHat()) {
     triggerPin(ledPin6);
     triggerPin(ledPin3);
-    delay(200);
     hatSize = 40;
   }
 
@@ -110,17 +108,15 @@ void draw() {
   if (beat.isOnset(2)) {
     triggerPin(ledPin4);
     triggerPin(ledPin);
-    delay(200);
   }
 
   if (beat.isOnset(4)) {
-    triggerPin(ledPin5);
-    delay(200);
+    pinTrigger(ledPin5);
   }
 
   // Blink an additional LED along with the song
   arduino.digitalWrite(ledPin3, beat.isOnset() ? Arduino.HIGH : Arduino.LOW);
-  delay(100);
+  delay(200);
 
   textSize(kickSize);
   text("FUNK", width / 2, height / 2);
@@ -150,10 +146,14 @@ void draw() {
 
 void triggerPin(int pin) {
   arduino.digitalWrite(pin, Arduino.HIGH);
-  delay(25);
+  delay(200);
   arduino.digitalWrite(pin, Arduino.LOW);
 }
-
+void pinTrigger(int pin) {
+  arduino.digitalWrite(pin, Arduino.LOW);
+  delay(200);
+  arduino.digitalWrite(pin, Arduino.HIGH);
+}
 void keyPressed() {
   if (key == 's' || key == 'S') {
     continuePlaying = false;  // Stop playing the next song
