@@ -78,7 +78,7 @@ void setup() {
   arduino.pinMode(ledPin3, Arduino.OUTPUT);
   arduino.pinMode(ledPin4, Arduino.OUTPUT);
   arduino.pinMode(ledPin5, Arduino.OUTPUT);
-  arduino.digitalWrite(ledPin5, Arduino.HIGH)
+  arduino.digitalWrite(ledPin5, Arduino.HIGH);
   arduino.pinMode(ledPin6, Arduino.OUTPUT);
 }
 
