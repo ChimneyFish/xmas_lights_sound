@@ -19,6 +19,9 @@ int ledPin3 = 11;     // LED connected to digital pin 11
 int ledPin4 = 9;     // LED connected to digital pin 9
 int ledPin5 = 8;   // LED connected to digital pin 8
 int ledPin6 = 7;     // LED connected to digital pin 7
+int ledPin7 = 4;     // LED connected to digital pin 4
+int ledPin8 = 5;   // LED connected to digital pin 5
+int ledPin9 = 6;     // LED connected to digital pin 6
 int ledPinBlink = 2; // Additional LED connected to digital pin 2 for blinking
 
 float kickSize, snareSize, hatSize, pSize;
@@ -80,6 +83,10 @@ void setup() {
   arduino.pinMode(ledPin5, Arduino.OUTPUT);
   arduino.digitalWrite(ledPin5, Arduino.HIGH);
   arduino.pinMode(ledPin6, Arduino.OUTPUT);
+  arduino.pinMode(ledPin7, Arduino.OUTPUT);
+  arduino.pinMode(ledPin8, Arduino.OUTPUT);
+  arduino.pinMode(ledPin9, Arduino.OUTPUT);
+ 
 }
 
 void draw() {
@@ -89,18 +96,21 @@ void draw() {
   if (beat.isKick()) {
     triggerPin(ledPin);
     triggerPin(ledPin4);
+    triggerPin(ledPin7);
     kickSize = 30;
   }
 
   if (beat.isSnare()) {
     triggerPin(ledPin2);
     pinTrigger(ledPin5);
+    triggerPin(ledPin8);
     snareSize = 35;
   }
 
   if (beat.isHat()) {
     triggerPin(ledPin6);
     triggerPin(ledPin3);
+    triggerPin(ledPin9);
     hatSize = 40;
   }
 
