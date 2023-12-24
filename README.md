@@ -32,4 +32,4 @@ control script for putting lights to the sound of music via relay controled by a
 ** wire it all together.
    <sub>diagrams and pictures coming soon, but if you already understand basic electronics and how relays operate you should have no problem
 
-
+## I have added a wireless method using 2 ESP8266 for a satalite controle and Ill put in the method I used to switch 24VDC on and off using Mosfet transistors.  
